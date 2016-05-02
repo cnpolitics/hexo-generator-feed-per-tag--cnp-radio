@@ -1,16 +1,16 @@
 {
-  "name": "hexo-generator-feed-per-category",
-  "version": "0.0.2",
+  "name": "hexo-generator-feed-per-category--cnp-radio",
+  "version": "1.0.0",
   "description": "Generates a feed per category for hexo.io based blogs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wmeints/hexo-generator-feed-per-category.git"
+    "url": "https://github.com/cnpolitics/hexo-generator-feed-per-category--cnp-radio.git"
   },
   "main": "index.js",
   "scripts": {
     "test": "mocha test/index.js"
   },
-  "author": "Willem Meints <willemm@infosupport.com>",
+  "author": "Zhengyu Qian <laerhsif@gmail.com>, Willem Meints <willemm@infosupport.com>",
   "license": "Apache-2.0",
   "devDependencies": {
     "chai": "^3.5.0",
