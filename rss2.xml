@@ -11,39 +11,81 @@
   xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0"
 >
   <channel>
-    <title>{{ category.name | e }}</title>
-    <link>{{ url | uriencode }}</link>
+    {% if category.path == "meme/" %}
+      {% set channel = config.podcast.meme %}
+      <itunes:category text="Science &amp; Medicine">
+        <itunes:category text="Social Sciences" />
+      </itunes:category>
+      <itunes:category text="Education">
+        <itunes:category text="Higher Education" />
+      </itunes:category>
+      <itunes:category text="News &amp; Politics">
+      </itunes:category>
+    {% elif category.path == "pub/" %}
+      {% set channel = config.podcast.pub %}
+      <itunes:category text="News &amp; Politics">
+      </itunes:category>
+      <itunes:category text="Science &amp; Medicine">
+        <itunes:category text="Social Sciences" />
+      </itunes:category>
+      <itunes:category text="Education">
+        <itunes:category text="Higher Education" />
+      </itunes:category>
+    {% elif category.path == "read/" %}
+      {% set channel = config.podcast.read %}
+      <itunes:category text="Science &amp; Medicine">
+        <itunes:category text="Social Sciences" />
+      </itunes:category>
+      <itunes:category text="Education">
+        <itunes:category text="Higher Education" />
+      </itunes:category>
+      <itunes:category text="News &amp; Politics">
+      </itunes:category>
+    {% elif category.path == "scholar/" %}
+      {% set channel = config.podcast.scholar %}
+      <itunes:category text="Education">
+        <itunes:category text="Higher Education" />
+      </itunes:category>
+      <itunes:category text="Science &amp; Medicine">
+        <itunes:category text="Social Sciences" />
+      </itunes:category>
+      <itunes:category text="Society &amp; Culture">
+        <itunes:category text="Philosophy" />
+      </itunes:category>
+    {% elif category.path == "talk/" %}
+      {% set channel = config.podcast.talk %}
+      <itunes:category text="News &amp; Politics">
+      </itunes:category>
+      <itunes:category text="Science &amp; Medicine">
+        <itunes:category text="Social Sciences" />
+      </itunes:category>
+      <itunes:category text="Education">
+        <itunes:category text="Higher Education" />
+      </itunes:category>
+    {% endif %}
+
+    <title>{{ channel.title | e }}</title>
+    <link>{{ channel.url | uriencode }}</link>
     <atom:link href="{{ feed_url | uriencode }}" rel="self" type="application/rss+xml"/>
-    {% if config.feed.hub %}<atom:link href="{{ config.feed.hub | uriencode }}" rel="hub"/>{% endif %}
-    
-    <description>{{ config.description | e }}</description>
-    <itunes:summary>{{ config.description | e }}</itunes:summary>
-    <itunes:author>{{ config.author | e }}</itunes:author>
+    <description>{{ channel.description | e }}</description>
+    <itunes:summary>{{ channel.description | e }}</itunes:summary>
+    <itunes:author>{{ channel.author | e }}</itunes:author>
     <itunes:explicit>no</itunes:explicit>
-    <itunes:image href="{{ posts.first().cover | uriencode }}" />
+    <itunes:image href="{{ channel.cover | uriencode }}" />
     <image>
-      <title>{{ category.name | e }}</title>
-      <url>{{ posts.first().cover | uriencode }}</url>
-      <link>{{ url | uriencode }}</link>
+      <title>{{ channel.title | e }}</title>
+      <url>{{ channel.cover | uriencode }}</url>
+      <link>{{ channel.url | uriencode }}</link>
     </image>
-    <itunes:category text="Science &amp; Medicine">
-      <itunes:category text="Social Sciences" />
-    </itunes:category>
-    <itunes:category text="News &amp; Politics">
-    </itunes:category>
-    <itunes:category text="Society &amp; Culture">
-      <itunes:category text="History" />
-    </itunes:category>
-    <rawvoice:rating>TV-G</rawvoice:rating>
-    
     <itunes:owner>
-      <itunes:name>{{ config.author | e }}</itunes:name>
-      <itunes:email>{{ config.email | uriencode }}</itunes:email>
+      <itunes:name>{{ channel.author | e }}</itunes:name>
+      <itunes:email>{{ channel.email | uriencode }}</itunes:email>
     </itunes:owner>
-    <managingEditor>{{ config.email | uriencode }} ({{ config.author | e }})</managingEditor>
-    <copyright>{{ config.copyright | e }}</copyright>
-    <itunes:subtitle>{{ config.subtitle | e }}</itunes:subtitle>
+    <managingEditor>{{ channel.email | uriencode }} ({{ channel.author | e }})</managingEditor>
+    <copyright>{{ channel.copyright | e }}</copyright>
+    <itunes:subtitle>{{ channel.subtitle | e }}</itunes:subtitle>
     
+    <rawvoice:rating>TV-G</rawvoice:rating>
     <pubDate>{{ posts.first().updated.toDate().toUTCString() }}</pubDate>
     <language>zh-CN</language>
     <sy:updatePeriod>hourly</sy:updatePeriod>
