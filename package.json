@@ -1,6 +1,6 @@
 {
   "name": "hexo-generator-feed-per-category--cnp-radio",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Generates a feed per channel for CNPolitics Radio",
   "repository": {
     "type": "git",
