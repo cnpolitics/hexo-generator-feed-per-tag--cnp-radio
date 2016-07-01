@@ -66,6 +66,7 @@
 
     <title>{{ channel.title | e }}</title>
     <link>{{ channel.url | uriencode }}</link>
+    <itunes:new-feed-url>{{ channel.feed | uriencode }}</itunes:new-feed-url>
     <atom:link href="{{ channel.feed | uriencode }}" rel="self" type="application/rss+xml"/>
     <description>{{ channel.description | e }}</description>
     <itunes:summary>{{ channel.description | e }}</itunes:summary>
