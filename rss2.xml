@@ -11,7 +11,7 @@
   xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0"
 >
   <channel>
-    {% if category.path == "meme/" %}
+    {% if tag.path == "/meme/" %}
       {% set channel = config.podcast.meme %}
       <itunes:category text="Science &amp; Medicine">
         <itunes:category text="Social Sciences" />
@@ -21,7 +21,7 @@
       </itunes:category>
       <itunes:category text="News &amp; Politics">
       </itunes:category>
-    {% elif category.path == "pub/" %}
+    {% elif tag.path == "/pub/" %}
       {% set channel = config.podcast.pub %}
       <itunes:category text="News &amp; Politics">
       </itunes:category>
@@ -31,7 +31,7 @@
       <itunes:category text="Education">
         <itunes:category text="Higher Education" />
       </itunes:category>
-    {% elif category.path == "read/" %}
+    {% elif tag.path == "/read/" %}
       {% set channel = config.podcast.read %}
       <itunes:category text="Science &amp; Medicine">
         <itunes:category text="Social Sciences" />
@@ -41,7 +41,7 @@
       </itunes:category>
       <itunes:category text="News &amp; Politics">
       </itunes:category>
-    {% elif category.path == "scholar/" %}
+    {% elif tag.path == "/scholar/" %}
       {% set channel = config.podcast.scholar %}
       <itunes:category text="Education">
         <itunes:category text="Higher Education" />
@@ -52,7 +52,7 @@
       <itunes:category text="Society &amp; Culture">
         <itunes:category text="Philosophy" />
       </itunes:category>
-    {% elif category.path == "talk/" %}
+    {% elif tag.path == "/talk/" %}
       {% set channel = config.podcast.talk %}
       <itunes:category text="News &amp; Politics">
       </itunes:category>
