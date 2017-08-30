@@ -22,7 +22,7 @@
       <itunes:category text="News &amp; Politics">
       </itunes:category>
     {% elif tag.path == "/mig/" %}
-      {% set channel = config.podcast.pub %}
+      {% set channel = config.podcast.mig %}
       <itunes:category text="News &amp; Politics">
       </itunes:category>
       <itunes:category text="Science &amp; Medicine">
